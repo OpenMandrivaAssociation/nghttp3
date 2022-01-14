@@ -12,7 +12,7 @@
 %define lib32name libnghttp3_%{major}
 %define devel32name libnghttp3-devel
 
-%define snapshot 20200525
+%define snapshot 20220112
 
 Summary: Experimental HTTP/3 client, server and proxy
 Name: nghttp3
@@ -21,7 +21,7 @@ Release:	%{?snapshot:0.%{snapshot}.}1
 License: MIT
 Group: System/Libraries
 URL: https://github.com/ngtcp2/nghttp3
-Source0: https://github.com/ngtcp2/nghttp3/archive/master.tar.gz
+Source0: https://github.com/ngtcp2/nghttp3/archive/nghttp3-%{snapshot}.tar.xz
 BuildRequires: cmake ninja
 
 %description
@@ -64,13 +64,13 @@ The libnghttp3-devel package includes libraries and header files needed
 for building applications with libnghttp2.
 
 %prep
-%autosetup -p1 -n %{name}-master
+%autosetup -p1 -n %{name}-%{snapshot}
 %if %{with compat32}
 #define build_ldflags -O2 -fno-lto
-%cmake32 -G Ninja
+%cmake32 -G Ninja -DENABLE_STATIC_LIB=OFF
 cd ..
 %endif
-%cmake -G Ninja
+%cmake -G Ninja -DENABLE_STATIC_LIB=OFF
 
 %build
 %if %{with compat32}
