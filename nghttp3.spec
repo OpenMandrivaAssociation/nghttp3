@@ -16,8 +16,8 @@
 
 Summary: Experimental HTTP/3 client, server and proxy
 Name: nghttp3
-Version:	0.0.0
-Release:	%{?snapshot:0.%{snapshot}.}1
+Version:	0.7.1
+Release:	%{?snapshot:1.%{snapshot}.}1
 License: MIT
 Group: System/Libraries
 URL: https://github.com/ngtcp2/nghttp3
