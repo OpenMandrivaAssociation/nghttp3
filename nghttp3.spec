@@ -21,6 +21,9 @@ Group:		System/Libraries
 URL:		https://github.com/ngtcp2/nghttp3
 Source0:	https://github.com/ngtcp2/nghttp3/releases/download/v%{version}/nghttp3-%{version}.tar.xz
 BuildRequires:	cmake ninja
+%if %{with compat32}
+BuildRequires:	libc6
+%endif
 
 %description
 This package contains the HTTP/3 client, server and proxy programs.
