@@ -6,7 +6,7 @@
 %bcond_with compat32
 %endif
 
-%define major 3
+%define major 8
 %define libname %mklibname nghttp3
 %define develname %mklibname -d nghttp3
 %define lib32name libnghttp3
@@ -14,8 +14,8 @@
 
 Summary:	Experimental HTTP/3 client, server and proxy
 Name:		nghttp3
-Version:	0.9.0
-Release:	2
+Version:	0.13.0
+Release:	1
 License:	MIT
 Group:		System/Libraries
 URL:		https://github.com/ngtcp2/nghttp3
@@ -66,6 +66,9 @@ for building applications with libnghttp2.
 
 %prep
 %autosetup -p1 -n %{name}-%{version}
+
+
+
 %if %{with compat32}
 #define build_ldflags -O2 -fno-lto
 %cmake32 -G Ninja -DENABLE_STATIC_LIB=OFF
