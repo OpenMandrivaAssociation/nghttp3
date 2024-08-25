@@ -6,7 +6,7 @@
 %bcond_with compat32
 %endif
 
-%define major 8
+%define major 9
 %define libname %mklibname nghttp3
 %define develname %mklibname -d nghttp3
 %define lib32name libnghttp3
@@ -14,7 +14,7 @@
 
 Summary:	Experimental HTTP/3 client, server and proxy
 Name:		nghttp3
-Version:	0.13.0
+Version:	1.5.0
 Release:	1
 License:	MIT
 Group:		System/Libraries
@@ -102,6 +102,7 @@ export "LD_LIBRARY_PATH=$RPM_BUILD_ROOT%{_libdir}"
 %{_includedir}/nghttp3
 %{_libdir}/pkgconfig/*.pc
 %{_libdir}/*.so
+%{_prefix}/lib/cmake/nghttp3
 %doc %{_docdir}/nghttp3
 
 %if %{with compat32}
