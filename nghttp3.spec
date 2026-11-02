@@ -22,7 +22,13 @@ URL:		https://github.com/ngtcp2/nghttp3
 Source0:	https://github.com/ngtcp2/nghttp3/releases/download/v%{version}/nghttp3-%{version}.tar.xz
 BuildRequires:	cmake ninja
 %if %{with compat32}
+# clang 23 -m32 links compiler-rt, not libgcc.a. The i386 builtins live
+# in the cross-i686 clang package, with matching libc/gcc/binutils sysroot.
 BuildRequires:	libc6
+BuildRequires:	cross-i686-openmandriva-linux-gnu-clang
+BuildRequires:	cross-i686-openmandriva-linux-gnu-libc
+BuildRequires:	cross-i686-openmandriva-linux-gnu-binutils
+BuildRequires:	cross-i686-openmandriva-linux-gnu-gcc
 %endif
 
 %description
